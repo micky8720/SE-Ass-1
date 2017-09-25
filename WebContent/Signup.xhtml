@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    
+    	<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet"></link>
+    	<link href="css/bootstrap-responsive.css" rel="stylesheet"></link>
+    	<style type="text/css"/>
+	</h:head>
+	<h:body>
+			<h:form><br/>
+				
+				
+				Firstname:<h:inputText  id="firstname" styleClass="form-control" value="#{register.firstname}" style="margin-left:50px"  a:placeholder="Enter your FirstName" required="true" requiredMessage="First name can't be empty."/>
+				<h:message for="firstname" style="color:#d62d20"/><br/><br/>
+				Lastname:<h:inputText  id="lastname" styleClass="form-control" value="#{register.lastname}" style="margin-left:50px" a:placeholder="Enter your LastName" required="true" requiredMessage="Last name can't be empty"/>
+				<h:message for="lastname" style="color:#d62d20"/><br/><br/>
+				Address:<h:inputText  id="address" styleClass="form-control" value="#{register.address}" style="margin-left:50px" a:placeholder="Enter Your Address" required="true" requiredMessage="You must provide address"/>
+				<h:message for="address" style="color:#d62d20"/><br/><br/>
+				Contact number:<h:inputText id="contactnumber" styleClass="form-control" style="margin-left:50px" a:type="tel" value="#{register.phonenumber}" a:placeholder="10 digit phonenumber" required="true" requiredMessage="Contact Number can't be empty." validatorMessage="Invalid phone number">
+				<f:validateRegex pattern="[0-9]{10}"></f:validateRegex></h:inputText>
+				<h:message for="phonenumber" style="color:#d62d20"/><br/><br/>
+				Email:<h:inputText id="email" styleClass="form-control" style="margin-left:50px" value="#{register.email}" a:placeholder="Enter your Email" required="true" requiredMessage="Email required" validatorMessage="Invalid email">
+				<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.(com|net|‌​org|edu)"/></h:inputText>
+				<h:message for="email" style="color:#d62d20"/><br/><br/>
+				Username:<h:inputText id="username" styleClass="form-control" style="margin-left:50px" value="#{register.username}" a:placeholder="Enter Username" required="true" requiredMessage="Username must be provided"/>
+				<h:message for="username" style="color:#d62d20"/><br/><br/>
+				Password: <h:inputSecret id="password" styleClass="form-control" value="#{login.password}" style="margin-left:50px" a:placeholder="Enter Password" required="true" requiredMessage="Password must have at least 1 upperletter,1 digit and 1 special character.">
+				<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" ></f:validateRegex></h:inputSecret>
+				<h:message for="password" style="color:#d62d20"/><br/><br/>
+				
+				
+				<h:commandButton styleClass="btn btn-small btn-warning" value="Register" action="Registrationsuccess"/><br/><br/>
+				
+				Already have an account?  <h:outputLink value="index.xhtml">Sign in</h:outputLink>
+			</h:form>
+			
+			
+			<script src="http://code.jquery.com/jquery.js"></script>
+    		<script src="js/bootstrap.min.js"></script>
+	</h:body>
+</html> 
